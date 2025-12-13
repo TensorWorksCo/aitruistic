@@ -3,16 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
-import {
-  Brain,
-  Menu,
-  X,
-  ChevronDown,
-  User,
-  Settings,
-  LogOut,
-  Shield,
-} from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -27,12 +17,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 
 const topics = [
-  { name: "AI Safety", slug: "ai-safety", description: "Alignment, control, and existential risk" },
-  { name: "Politics & Governance", slug: "politics", description: "Regulation, policy, international cooperation" },
-  { name: "Economic Impacts", slug: "economics", description: "Jobs, automation, and UBI" },
-  { name: "Mental Health", slug: "mental-health", description: "AI companions, social media, digital wellness" },
-  { name: "Altruistic Opportunity", slug: "altruism", description: "Positive applications and EA" },
-  { name: "Technology Demos", slug: "demos", description: "Interactive AI demonstrations" },
+  { name: "AI Safety", slug: "ai-safety" },
+  { name: "Politics & Governance", slug: "politics" },
+  { name: "Economic Impacts", slug: "economics" },
+  { name: "Mental Health", slug: "mental-health" },
+  { name: "Altruistic Opportunity", slug: "altruism" },
+  { name: "Technology Demos", slug: "demos" },
 ];
 
 export function Header() {
@@ -44,49 +34,42 @@ export function Header() {
   const isModerator = session?.user?.role === "MODERATOR" || isAdmin;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-2">
-            <Brain className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold">AItruistic</span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-0.5">
             <Link
               href="/"
               className={cn(
-                "px-3 py-2 text-sm font-medium rounded-md transition-colors hover:bg-accent",
-                pathname === "/" && "bg-accent"
+                "px-2 py-2 text-xs lg:text-sm font-medium rounded-md transition-colors hover:bg-muted",
+                pathname === "/" && "bg-muted"
               )}
             >
               Home
             </Link>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="gap-1">
-                  Topics
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-64">
-                {topics.map((topic) => (
-                  <DropdownMenuItem key={topic.slug} asChild>
-                    <Link href={`/topics/${topic.slug}`} className="flex flex-col items-start">
-                      <span className="font-medium">{topic.name}</span>
-                      <span className="text-xs text-muted-foreground">{topic.description}</span>
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {topics.map((topic) => (
+              <Link
+                key={topic.slug}
+                href={`/topics/${topic.slug}`}
+                className={cn(
+                  "px-2 py-2 text-xs lg:text-sm font-medium rounded-md transition-colors hover:bg-muted",
+                  pathname.startsWith(`/topics/${topic.slug}`) && "bg-muted"
+                )}
+              >
+                {topic.name}
+              </Link>
+            ))}
 
             <Link
               href="/about"
               className={cn(
-                "px-3 py-2 text-sm font-medium rounded-md transition-colors hover:bg-accent",
-                pathname === "/about" && "bg-accent"
+                "px-2 py-2 text-xs lg:text-sm font-medium rounded-md transition-colors hover:bg-muted",
+                pathname === "/about" && "bg-muted"
               )}
             >
               About
@@ -117,13 +100,11 @@ export function Header() {
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
                   <Link href="/profile" className="cursor-pointer">
-                    <User className="mr-2 h-4 w-4" />
                     Profile
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link href="/settings" className="cursor-pointer">
-                    <Settings className="mr-2 h-4 w-4" />
                     Settings
                   </Link>
                 </DropdownMenuItem>
@@ -132,7 +113,6 @@ export function Header() {
                     <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>
                       <Link href="/admin" className="cursor-pointer">
-                        <Shield className="mr-2 h-4 w-4" />
                         {isAdmin ? "Admin Dashboard" : "Moderator Panel"}
                       </Link>
                     </DropdownMenuItem>
@@ -143,7 +123,6 @@ export function Header() {
                   className="cursor-pointer text-destructive focus:text-destructive"
                   onClick={() => signOut()}
                 >
-                  <LogOut className="mr-2 h-4 w-4" />
                   Sign out
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -161,11 +140,10 @@ export function Header() {
 
           <Button
             variant="ghost"
-            size="icon"
             className="md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {mobileMenuOpen ? "Close" : "Menu"}
           </Button>
         </div>
       </div>
@@ -175,17 +153,16 @@ export function Header() {
           <nav className="container py-4 flex flex-col gap-2">
             <Link
               href="/"
-              className="px-3 py-2 text-sm font-medium rounded-md hover:bg-accent"
+              className="px-3 py-2 text-sm font-medium rounded-md hover:bg-muted"
               onClick={() => setMobileMenuOpen(false)}
             >
               Home
             </Link>
-            <div className="px-3 py-2 text-sm font-medium text-muted-foreground">Topics</div>
             {topics.map((topic) => (
               <Link
                 key={topic.slug}
                 href={`/topics/${topic.slug}`}
-                className="px-6 py-2 text-sm rounded-md hover:bg-accent"
+                className="px-3 py-2 text-sm font-medium rounded-md hover:bg-muted"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {topic.name}
@@ -193,7 +170,7 @@ export function Header() {
             ))}
             <Link
               href="/about"
-              className="px-3 py-2 text-sm font-medium rounded-md hover:bg-accent"
+              className="px-3 py-2 text-sm font-medium rounded-md hover:bg-muted"
               onClick={() => setMobileMenuOpen(false)}
             >
               About

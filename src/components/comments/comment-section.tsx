@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { formatDistanceToNow } from "date-fns";
-import { MessageSquare, Reply, Send, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -97,7 +96,6 @@ export function CommentSection({ contentId, initialComments = [] }: CommentSecti
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <MessageSquare className="h-5 w-5" />
           Comments ({comments.length})
         </CardTitle>
       </CardHeader>
@@ -111,12 +109,7 @@ export function CommentSection({ contentId, initialComments = [] }: CommentSecti
               rows={3}
             />
             <Button type="submit" disabled={isSubmitting || !newComment.trim()}>
-              {isSubmitting ? (
-                <Loader2 className="h-4 w-4 animate-spin mr-2" />
-              ) : (
-                <Send className="h-4 w-4 mr-2" />
-              )}
-              Post Comment
+              {isSubmitting ? "Posting..." : "Post Comment"}
             </Button>
           </form>
         ) : (
@@ -152,7 +145,6 @@ export function CommentSection({ contentId, initialComments = [] }: CommentSecti
                       size="sm"
                       onClick={() => setReplyingTo(replyingTo === comment.id ? null : comment.id)}
                     >
-                      <Reply className="h-4 w-4 mr-1" />
                       Reply
                     </Button>
                   )}
@@ -171,11 +163,7 @@ export function CommentSection({ contentId, initialComments = [] }: CommentSecti
                           onClick={() => handleSubmitReply(comment.id)}
                           disabled={isSubmitting || !replyText.trim()}
                         >
-                          {isSubmitting ? (
-                            <Loader2 className="h-4 w-4 animate-spin" />
-                          ) : (
-                            "Reply"
-                          )}
+                          {isSubmitting ? "Replying..." : "Reply"}
                         </Button>
                         <Button
                           size="sm"

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Brain, Github, Twitter, Youtube, Mail } from "lucide-react";
 
 const topics = [
   { name: "AI Safety", slug: "ai-safety" },
@@ -17,25 +16,21 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Brain className="h-8 w-8 text-primary" />
               <span className="text-xl font-bold">AItruistic</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               A non-profit organization dedicated to education and discussion about modern AI
               safety, altruistic opportunity, and civilizational threats.
             </p>
-            <div className="flex gap-4">
-              <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Twitter className="h-5 w-5" />
+            <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+              <Link href="/newsletter" className="text-muted-foreground hover:text-foreground transition-colors">
+                Newsletter
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Youtube className="h-5 w-5" />
+              <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                Contact
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Github className="h-5 w-5" />
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Mail className="h-5 w-5" />
+              <Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">
+                About
               </Link>
             </div>
           </div>

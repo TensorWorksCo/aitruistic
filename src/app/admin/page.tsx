@@ -1,31 +1,22 @@
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import {
-  Users,
-  FileText,
-  MessageSquare,
-  Settings,
-  BarChart3,
-  PlusCircle,
-  Shield,
-} from "lucide-react";
 import { auth } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const stats = [
-  { label: "Total Users", value: "1,234", icon: Users, trend: "+12%" },
-  { label: "Published Content", value: "56", icon: FileText, trend: "+8%" },
-  { label: "Comments", value: "892", icon: MessageSquare, trend: "+23%" },
-  { label: "Active Topics", value: "6", icon: BarChart3, trend: "0%" },
+  { label: "Total Users", value: "1,234", trend: "+12%" },
+  { label: "Published Content", value: "56", trend: "+8%" },
+  { label: "Comments", value: "892", trend: "+23%" },
+  { label: "Active Topics", value: "6", trend: "0%" },
 ];
 
 const quickActions = [
-  { label: "Add Article", href: "/admin/content/new?type=article", icon: PlusCircle },
-  { label: "Add Video", href: "/admin/content/new?type=video", icon: PlusCircle },
-  { label: "Manage Users", href: "/admin/users", icon: Users },
-  { label: "Review Comments", href: "/admin/comments", icon: MessageSquare },
-  { label: "Site Settings", href: "/admin/settings", icon: Settings },
+  { label: "Add Article", href: "/admin/content/new?type=article" },
+  { label: "Add Video", href: "/admin/content/new?type=video" },
+  { label: "Manage Users", href: "/admin/users" },
+  { label: "Review Comments", href: "/admin/comments" },
+  { label: "Site Settings", href: "/admin/settings" },
 ];
 
 export default async function AdminPage() {
@@ -47,7 +38,6 @@ export default async function AdminPage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl font-bold flex items-center gap-2">
-            <Shield className="h-8 w-8 text-primary" />
             {isAdmin ? "Admin Dashboard" : "Moderator Panel"}
           </h1>
           <p className="text-muted-foreground">
@@ -64,12 +54,11 @@ export default async function AdminPage() {
               <CardTitle className="text-sm font-medium text-muted-foreground">
                 {stat.label}
               </CardTitle>
-              <stat.icon className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{stat.value}</div>
               <p className="text-xs text-muted-foreground">
-                <span className={stat.trend.startsWith("+") ? "text-green-500" : ""}>
+                <span className={stat.trend.startsWith("+") ? "text-primary" : ""}>
                   {stat.trend}
                 </span>{" "}
                 from last month
@@ -91,7 +80,6 @@ export default async function AdminPage() {
               asChild
             >
               <Link href={action.href}>
-                <action.icon className="h-5 w-5" />
                 {action.label}
               </Link>
             </Button>

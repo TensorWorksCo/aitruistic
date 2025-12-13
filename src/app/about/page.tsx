@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Brain, Users, Target, BookOpen, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -13,17 +12,14 @@ const team = [
 
 const values = [
   {
-    icon: Target,
     title: "Mission-Driven",
     description: "We prioritize long-term human flourishing over short-term gains.",
   },
   {
-    icon: BookOpen,
     title: "Education First",
     description: "Making complex AI topics accessible to everyone, regardless of technical background.",
   },
   {
-    icon: Users,
     title: "Community-Centered",
     description: "Building a thoughtful community of people who care about humanity's future.",
   },
@@ -35,9 +31,6 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="container py-16 md:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-6 inline-flex items-center justify-center">
-            <Brain className="h-16 w-16 text-primary" />
-          </div>
           <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">About AItruistic</h1>
           <p className="text-lg text-muted-foreground md:text-xl">
             We are a non-profit organization dedicated to education and discussion about modern AI
@@ -81,9 +74,6 @@ export default function AboutPage() {
           {values.map((value, index) => (
             <Card key={index}>
               <CardHeader>
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                  <value.icon className="h-6 w-6 text-primary" />
-                </div>
                 <CardTitle>{value.title}</CardTitle>
               </CardHeader>
               <CardContent>
@@ -139,7 +129,6 @@ export default function AboutPage() {
             <Button size="lg" asChild>
               <Link href="/auth/signup">
                 Create Account
-                <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>

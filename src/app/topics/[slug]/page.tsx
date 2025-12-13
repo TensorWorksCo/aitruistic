@@ -1,17 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  Shield,
-  Landmark,
-  TrendingUp,
-  Heart,
-  Sparkles,
-  Cpu,
-  ArrowLeft,
-  Play,
-  FileText,
-  ExternalLink,
-} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -22,9 +10,6 @@ const topicsData = {
     description: "Alignment, control problems, and existential risk from advanced AI systems",
     longDescription:
       "AI Safety research focuses on ensuring that artificial intelligence systems behave in ways that are beneficial to humanity. This includes technical research on alignment, interpretability, robustness, and governance structures to ensure AI development proceeds safely.",
-    icon: Shield,
-    color: "text-red-500",
-    bgColor: "bg-red-500/10",
     articles: [
       { title: "Understanding AI Alignment: A Primer", date: "Dec 10, 2024", external: false },
       { title: "The Control Problem Explained", date: "Dec 5, 2024", external: false },
@@ -40,9 +25,6 @@ const topicsData = {
     description: "Regulation, policy frameworks, and international cooperation on AI",
     longDescription:
       "As AI systems become more powerful, governments and international bodies are grappling with how to regulate and govern these technologies. This section covers policy proposals, regulatory frameworks, and international cooperation efforts.",
-    icon: Landmark,
-    color: "text-blue-500",
-    bgColor: "bg-blue-500/10",
     articles: [
       { title: "AI Policy Frameworks Around the World", date: "Dec 5, 2024", external: false },
       { title: "The EU AI Act Explained", date: "Nov 30, 2024", external: true },
@@ -57,9 +39,6 @@ const topicsData = {
     description: "Jobs, automation, UBI, and the future of work in an AI economy",
     longDescription:
       "AI and automation are reshaping labor markets and economic systems. This section explores the economic implications of AI, including job displacement, new opportunities, universal basic income proposals, and strategies for economic adaptation.",
-    icon: TrendingUp,
-    color: "text-green-500",
-    bgColor: "bg-green-500/10",
     articles: [
       { title: "The Economics of Automation", date: "Dec 8, 2024", external: false },
       { title: "UBI and AI: A Comprehensive Look", date: "Nov 15, 2024", external: false },
@@ -74,9 +53,6 @@ const topicsData = {
     description: "AI companions, social media effects, and digital wellness",
     longDescription:
       "AI is increasingly affecting mental health through social media algorithms, AI companions, and digital wellness tools. This section examines both the risks and opportunities AI presents for psychological wellbeing.",
-    icon: Heart,
-    color: "text-pink-500",
-    bgColor: "bg-pink-500/10",
     articles: [
       { title: "AI Companions: Promise and Peril", date: "Dec 3, 2024", external: false },
       { title: "Algorithmic Mental Health Impacts", date: "Nov 22, 2024", external: true },
@@ -90,9 +66,6 @@ const topicsData = {
     description: "Positive applications of AI for humanity and effective altruism",
     longDescription:
       "AI offers tremendous opportunities to address global challenges and improve human welfare. This section explores how AI can be leveraged for positive impact, including connections to effective altruism and global priorities research.",
-    icon: Sparkles,
-    color: "text-yellow-500",
-    bgColor: "bg-yellow-500/10",
     articles: [
       { title: "AI for Global Health", date: "Dec 1, 2024", external: false },
       { title: "Effective Altruism and AI Development", date: "Nov 25, 2024", external: false },
@@ -106,9 +79,6 @@ const topicsData = {
     description: "Interactive demonstrations of AI capabilities and limitations",
     longDescription:
       "Understanding AI requires hands-on experience. This section features interactive demonstrations, experiments, and tools that help illustrate both the capabilities and limitations of current AI systems.",
-    icon: Cpu,
-    color: "text-purple-500",
-    bgColor: "bg-purple-500/10",
     articles: [
       { title: "Understanding Large Language Models", date: "Dec 6, 2024", external: false },
     ],
@@ -128,54 +98,41 @@ export default function TopicPage({ params }: { params: { slug: string } }) {
     notFound();
   }
 
-  const Icon = topic.icon;
-
   return (
     <div className="container py-8 md:py-12">
       <Link
         href="/"
         className="mb-8 inline-flex items-center text-sm text-muted-foreground hover:text-foreground"
       >
-        <ArrowLeft className="mr-2 h-4 w-4" />
         Back to Home
       </Link>
 
       <div className="mb-12">
-        <div className="flex items-start gap-4 mb-4">
-          <div className={`inline-flex h-16 w-16 items-center justify-center rounded-xl ${topic.bgColor}`}>
-            <Icon className={`h-8 w-8 ${topic.color}`} />
-          </div>
-          <div>
-            <h1 className="text-3xl font-bold md:text-4xl">{topic.name}</h1>
-            <p className="text-lg text-muted-foreground">{topic.description}</p>
-          </div>
+        <div className="mb-4">
+          <h1 className="text-3xl font-bold md:text-4xl">{topic.name}</h1>
+          <p className="text-lg text-muted-foreground">{topic.description}</p>
         </div>
         <p className="text-muted-foreground max-w-3xl">{topic.longDescription}</p>
       </div>
 
       <Tabs defaultValue="articles" className="space-y-6">
         <TabsList>
-          <TabsTrigger value="articles" className="gap-2">
-            <FileText className="h-4 w-4" />
-            Articles
-          </TabsTrigger>
-          <TabsTrigger value="videos" className="gap-2">
-            <Play className="h-4 w-4" />
-            Videos
-          </TabsTrigger>
+          <TabsTrigger value="articles">Articles</TabsTrigger>
+          <TabsTrigger value="videos">Videos</TabsTrigger>
         </TabsList>
 
         <TabsContent value="articles" className="space-y-4">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {topic.articles.map((article, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow cursor-pointer">
+              <Card key={index} className="hover:shadow-md hover:border-foreground/10 transition-all cursor-pointer">
                 <CardHeader>
-                  <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 rounded-md mb-4 flex items-center justify-center">
-                    <FileText className="h-10 w-10 text-primary" />
-                  </div>
                   <CardTitle className="text-lg flex items-center gap-2">
                     {article.title}
-                    {article.external && <ExternalLink className="h-4 w-4 text-muted-foreground" />}
+                    {article.external && (
+                      <span className="text-xs font-normal text-muted-foreground">
+                        External
+                      </span>
+                    )}
                   </CardTitle>
                   <CardDescription>{article.date}</CardDescription>
                 </CardHeader>
@@ -197,10 +154,9 @@ export default function TopicPage({ params }: { params: { slug: string } }) {
         <TabsContent value="videos" className="space-y-4">
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {topic.videos.map((video, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow cursor-pointer">
+              <Card key={index} className="hover:shadow-md hover:border-foreground/10 transition-all cursor-pointer">
                 <CardHeader>
-                  <div className="aspect-video bg-gradient-to-br from-primary/20 to-primary/5 rounded-md mb-4 flex items-center justify-center relative">
-                    <Play className="h-12 w-12 text-primary" />
+                  <div className="aspect-video bg-muted rounded-md mb-4 flex items-center justify-center relative">
                     <span className="absolute bottom-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded">
                       {video.duration}
                     </span>
