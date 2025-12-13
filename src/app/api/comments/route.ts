@@ -3,8 +3,6 @@ import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { z } from "zod";
 
-export const dynamic = "force-dynamic";
-
 const commentSchema = z.object({
   body: z.string().min(1, "Comment cannot be empty").max(2000, "Comment too long"),
   contentId: z.string(),

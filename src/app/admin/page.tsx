@@ -4,8 +4,6 @@ import { auth } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-export const dynamic = "force-dynamic";
-
 const stats = [
   { label: "Total Users", value: "1,234", trend: "+12%" },
   { label: "Published Content", value: "56", trend: "+8%" },
