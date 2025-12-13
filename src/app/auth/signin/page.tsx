@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
-export default function SignInPage() {
+function SignInForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/";
@@ -153,5 +153,13 @@ export default function SignInPage() {
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+export default function SignInPage() {
+  return (
+    <Suspense fallback={<div className="container flex min-h-[calc(100vh-8rem)] items-center justify-center py-12">Loading...</div>}>
+      <SignInForm />
+    </Suspense>
   );
 }

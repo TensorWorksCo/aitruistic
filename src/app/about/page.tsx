@@ -2,14 +2,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const team = [
-  {
-    name: "Founding Team",
-    role: "Leadership",
-    description: "Dedicated to fostering informed public discourse about AI's impact on society.",
-  },
-];
-
 const values = [
   {
     title: "Mission-Driven",
@@ -62,9 +54,9 @@ export default function AboutPage() {
               </p>
               <p>
                 Our mission is to bridge the gap between technical AI research and public
-                understanding, foster thoughtful discussion about AI's societal impacts, and
+                understanding, foster thoughtful discussion about AI&apos;s societal impacts, and
                 build a community of engaged citizens who can participate meaningfully in shaping
-                AI's future.
+                AI&apos;s future.
               </p>
             </div>
           </div>
@@ -104,7 +96,7 @@ export default function AboutPage() {
               <div className="rounded-lg border bg-background p-6">
                 <h3 className="text-lg font-semibold mb-2">Community Discussion</h3>
                 <p className="text-muted-foreground">
-                  We foster thoughtful conversation about AI's impact across multiple domains,
+                  We foster thoughtful conversation about AI&apos;s impact across multiple domains,
                   from safety and governance to economics and mental health.
                 </p>
               </div>
@@ -125,7 +117,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="mb-4 text-3xl font-bold">Join Our Community</h2>
           <p className="mb-8 text-muted-foreground">
-            Be part of the conversation about AI's future. Create an account to engage with
+            Be part of the conversation about AI&apos;s future. Create an account to engage with
             content, participate in discussions, and connect with others who share your concerns
             and hopes for AI.
           </p>
