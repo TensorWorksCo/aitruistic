@@ -10,7 +10,7 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 32%;
+    --primary: 222 60% 45%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 20% 96%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -22,7 +22,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 47.4% 32%;
+    --ring: 222 60% 45%;
     --radius: 0.5rem;
   }
 
@@ -61,11 +61,11 @@
 /* Custom gradient backgrounds */
 .gradient-mesh {
   background: 
-    radial-gradient(at 40% 20%, hsla(222, 47%, 32%, 0.10) 0px, transparent 55%),
+    radial-gradient(at 40% 20%, hsla(222, 60%, 45%, 0.10) 0px, transparent 55%),
     radial-gradient(at 80% 0%, hsla(222, 20%, 40%, 0.06) 0px, transparent 55%),
-    radial-gradient(at 0% 50%, hsla(222, 47%, 32%, 0.06) 0px, transparent 55%),
+    radial-gradient(at 0% 50%, hsla(222, 60%, 45%, 0.06) 0px, transparent 55%),
     radial-gradient(at 80% 50%, hsla(222, 20%, 40%, 0.05) 0px, transparent 55%),
-    radial-gradient(at 0% 100%, hsla(222, 47%, 32%, 0.06) 0px, transparent 55%);
+    radial-gradient(at 0% 100%, hsla(222, 60%, 45%, 0.06) 0px, transparent 55%);
 }
 
 .dark .gradient-mesh {

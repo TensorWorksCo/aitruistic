@@ -31,7 +31,10 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="container py-16 md:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">About AItruistic</h1>
+          <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">
+            About <span className="text-primary">AI</span>
+            <span className="text-foreground">truistic</span>
+          </h1>
           <p className="text-lg text-muted-foreground md:text-xl">
             We are a non-profit organization dedicated to education and discussion about modern AI
             safety, governance, and civilizational risk.
@@ -47,8 +50,9 @@ export default function AboutPage() {
             <div className="space-y-4 text-muted-foreground">
               <p>
                 As artificial intelligence rapidly advances, humanity faces both unprecedented
-                opportunities and risks. AItruistic exists to ensure that public discourse about
-                AI is informed, nuanced, and accessible.
+                opportunities and risks. <span className="text-primary">AI</span>
+                <span className="text-foreground">truistic</span> exists to ensure that public
+                discourse about AI is informed, nuanced, and accessible.
               </p>
               <p>
                 We believe that the decisions made about AI development in the coming years will

@@ -14,7 +14,10 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <span className="text-xl font-bold">AItruistic</span>
+              <span className="text-xl font-bold">
+                <span className="text-primary">AI</span>
+                <span className="text-foreground">truistic</span>
+              </span>
             </Link>
             <p className="text-sm text-muted-foreground">
               A non-profit organization dedicated to education and discussion about modern AI
@@ -104,7 +107,10 @@ export function Footer() {
         </div>
 
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} AItruistic. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} <span className="text-primary">AI</span>
+            <span className="text-foreground">truistic</span>. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

@@ -59,7 +59,10 @@ export default function HomePage() {
               AI Safety & Public Interest
             </p>
             <h1 className="mt-2 text-4xl font-semibold tracking-tight md:text-5xl">
-              AItruistic
+              <span>
+                <span className="text-primary">AI</span>
+                <span className="text-foreground">truistic</span>
+              </span>
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
               A nonprofit for education and discussion on modern AI safety, governance, economic
