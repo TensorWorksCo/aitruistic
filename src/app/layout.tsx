@@ -8,10 +8,10 @@ import { Providers } from "@/components/providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AItruistic - AI Safety & Altruistic Opportunity",
+  title: "AItruistic - AI Safety & Public Interest",
   description:
-    "A non-profit organization dedicated to education and discussion about modern AI safety, altruistic opportunity, and civilizational threats.",
-  keywords: ["AI safety", "artificial intelligence", "effective altruism", "AI policy", "technology ethics"],
+    "A non-profit organization dedicated to education and discussion about modern AI safety, governance, and civilizational risk.",
+  keywords: ["AI safety", "artificial intelligence", "AI governance", "AI policy", "technology ethics"],
 };
 
 export default function RootLayout({

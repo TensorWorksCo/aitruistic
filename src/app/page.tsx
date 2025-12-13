@@ -22,16 +22,6 @@ const topics = [
     slug: "mental-health",
     description: "AI companions, social media effects, and digital wellness",
   },
-  {
-    name: "Altruistic Opportunity",
-    slug: "altruism",
-    description: "Positive applications of AI for humanity and effective altruism",
-  },
-  {
-    name: "Technology Demos",
-    slug: "demos",
-    description: "Interactive demonstrations of AI capabilities and limitations",
-  },
 ];
 
 const featuredContent = [

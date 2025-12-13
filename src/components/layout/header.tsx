@@ -21,8 +21,6 @@ const topics = [
   { name: "Politics & Governance", slug: "politics" },
   { name: "Economic Impacts", slug: "economics" },
   { name: "Mental Health", slug: "mental-health" },
-  { name: "Altruistic Opportunity", slug: "altruism" },
-  { name: "Technology Demos", slug: "demos" },
 ];
 
 export function Header() {
@@ -42,16 +40,6 @@ export function Header() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-0.5">
-            <Link
-              href="/"
-              className={cn(
-                "px-2 py-2 text-xs lg:text-sm font-medium rounded-md transition-colors hover:bg-muted",
-                pathname === "/" && "bg-muted"
-              )}
-            >
-              Home
-            </Link>
-
             {topics.map((topic) => (
               <Link
                 key={topic.slug}
@@ -64,6 +52,26 @@ export function Header() {
                 {topic.name}
               </Link>
             ))}
+
+            <Link
+              href="/events"
+              className={cn(
+                "px-2 py-2 text-xs lg:text-sm font-medium rounded-md transition-colors hover:bg-muted",
+                pathname === "/events" && "bg-muted"
+              )}
+            >
+              Events
+            </Link>
+
+            <Link
+              href="/projects"
+              className={cn(
+                "px-2 py-2 text-xs lg:text-sm font-medium rounded-md transition-colors hover:bg-muted",
+                pathname === "/projects" && "bg-muted"
+              )}
+            >
+              Projects
+            </Link>
 
             <Link
               href="/about"
@@ -151,13 +159,6 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden border-t bg-background">
           <nav className="container py-4 flex flex-col gap-2">
-            <Link
-              href="/"
-              className="px-3 py-2 text-sm font-medium rounded-md hover:bg-muted"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Home
-            </Link>
             {topics.map((topic) => (
               <Link
                 key={topic.slug}
@@ -168,6 +169,22 @@ export function Header() {
                 {topic.name}
               </Link>
             ))}
+
+            <Link
+              href="/events"
+              className="px-3 py-2 text-sm font-medium rounded-md hover:bg-muted"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Events
+            </Link>
+
+            <Link
+              href="/projects"
+              className="px-3 py-2 text-sm font-medium rounded-md hover:bg-muted"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Projects
+            </Link>
             <Link
               href="/about"
               className="px-3 py-2 text-sm font-medium rounded-md hover:bg-muted"

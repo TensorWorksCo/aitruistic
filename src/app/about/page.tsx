@@ -34,7 +34,7 @@ export default function AboutPage() {
           <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl">About AItruistic</h1>
           <p className="text-lg text-muted-foreground md:text-xl">
             We are a non-profit organization dedicated to education and discussion about modern AI
-            safety, altruistic opportunity, and civilizational threats.
+            safety, governance, and civilizational risk.
           </p>
         </div>
       </section>

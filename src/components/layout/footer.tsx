@@ -5,8 +5,6 @@ const topics = [
   { name: "Politics & Governance", slug: "politics" },
   { name: "Economic Impacts", slug: "economics" },
   { name: "Mental Health", slug: "mental-health" },
-  { name: "Altruistic Opportunity", slug: "altruism" },
-  { name: "Technology Demos", slug: "demos" },
 ];
 
 export function Footer() {
@@ -20,11 +18,17 @@ export function Footer() {
             </Link>
             <p className="text-sm text-muted-foreground">
               A non-profit organization dedicated to education and discussion about modern AI
-              safety, altruistic opportunity, and civilizational threats.
+              safety, governance, and civilizational risk.
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
               <Link href="/newsletter" className="text-muted-foreground hover:text-foreground transition-colors">
                 Newsletter
+              </Link>
+              <Link href="/events" className="text-muted-foreground hover:text-foreground transition-colors">
+                Events
+              </Link>
+              <Link href="/projects" className="text-muted-foreground hover:text-foreground transition-colors">
+                Projects
               </Link>
               <Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors">
                 Contact

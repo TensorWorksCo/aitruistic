@@ -61,32 +61,6 @@ const topicsData = {
       { title: "Digital Wellness in the AI Era", date: "Nov 18, 2024", duration: "24:15" },
     ],
   },
-  altruism: {
-    name: "Altruistic Opportunity",
-    description: "Positive applications of AI for humanity and effective altruism",
-    longDescription:
-      "AI offers tremendous opportunities to address global challenges and improve human welfare. This section explores how AI can be leveraged for positive impact, including connections to effective altruism and global priorities research.",
-    articles: [
-      { title: "AI for Global Health", date: "Dec 1, 2024", external: false },
-      { title: "Effective Altruism and AI Development", date: "Nov 25, 2024", external: false },
-    ],
-    videos: [
-      { title: "AI Applications in Climate Science", date: "Nov 20, 2024", duration: "31:00" },
-    ],
-  },
-  demos: {
-    name: "Technology Demos",
-    description: "Interactive demonstrations of AI capabilities and limitations",
-    longDescription:
-      "Understanding AI requires hands-on experience. This section features interactive demonstrations, experiments, and tools that help illustrate both the capabilities and limitations of current AI systems.",
-    articles: [
-      { title: "Understanding Large Language Models", date: "Dec 6, 2024", external: false },
-    ],
-    videos: [
-      { title: "Live AI Capability Demo", date: "Dec 2, 2024", duration: "45:00" },
-      { title: "AI Limitations Showcase", date: "Nov 15, 2024", duration: "28:30" },
-    ],
-  },
 };
 
 type TopicSlug = keyof typeof topicsData;
