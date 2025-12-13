@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   description:
     "A non-profit organization dedicated to education and discussion about modern AI safety, governance, and civilizational risk.",
   keywords: ["AI safety", "artificial intelligence", "AI governance", "AI policy", "technology ethics"],
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
