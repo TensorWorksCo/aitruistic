@@ -2,7 +2,7 @@ import ArticleList from "@/components/ArticleList";
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col">
+    <div>
       {/* Hero Section */}
       <section className="relative border-b bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/hero-bg.jpg)' }}>
         <div className="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>

@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <div className="flex flex-col">
+    <div>
       {/* Hero */}
       <section className="container py-16 md:py-24">
         <div className="mx-auto max-w-3xl text-center">
