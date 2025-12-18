@@ -28,21 +28,23 @@ export default function HomePage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="border-b">
-        <div className="container py-10 md:py-14">
+      <section className="relative border-b bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/hero-bg.jpg)' }}>
+        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
+        <div className="container relative py-10 md:py-14">
           <div className="mx-auto max-w-4xl">
             <p className="text-xs uppercase tracking-wider text-muted-foreground">
               AI Safety & Public Interest
             </p>
-            <h1 className="mt-2 text-4xl font-semibold tracking-tight md:text-5xl">
+            <h1 className="mt-2 text-5xl font-semibold tracking-tight md:text-6xl lg:text-7xl">
               <span>
                 <span className="text-primary">AI</span>
                 <span className="text-foreground">truistic</span>
               </span>
             </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
-              A volunteer community for education and discussion on modern AI safety, governance, economic
-              impacts, and societal risk.
+            <p className="mt-6 text-xl text-muted-foreground md:text-2xl">
+              A volunteer-driven community advancing understanding of AI safety, governance, and societal impact. 
+              We bring together researchers, policymakers, and technologists to ensure AI development aligns 
+              with human values.
             </p>
           </div>
         </div>
