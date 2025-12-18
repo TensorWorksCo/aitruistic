@@ -20,7 +20,7 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-sm text-muted-foreground">
-              A non-profit organization dedicated to education and discussion about modern AI
+              A volunteer community dedicated to education and discussion about modern AI
               safety, governance, and civilizational risk.
             </p>
             <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">

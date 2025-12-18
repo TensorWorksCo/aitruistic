@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "AItruistic - AI Safety & Public Interest",
   description:
-    "A non-profit organization dedicated to education and discussion about modern AI safety, governance, and civilizational risk.",
+    "A volunteer community dedicated to education and discussion about modern AI safety, governance, and civilizational risk.",
   keywords: ["AI safety", "artificial intelligence", "AI governance", "AI policy", "technology ethics"],
   icons: {
     icon: "/favicon.svg",

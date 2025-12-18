@@ -65,7 +65,7 @@ export default function HomePage() {
               </span>
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
-              A nonprofit for education and discussion on modern AI safety, governance, economic
+              A volunteer community for education and discussion on modern AI safety, governance, economic
               impacts, and societal risk.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">

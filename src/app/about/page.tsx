@@ -28,7 +28,7 @@ export default function AboutPage() {
             <span className="text-foreground">truistic</span>
           </h1>
           <p className="text-lg text-muted-foreground md:text-xl">
-            We are a non-profit organization dedicated to education and discussion about modern AI
+            We are a volunteer community dedicated to education and discussion about modern AI
             safety, governance, and civilizational risk.
           </p>
         </div>

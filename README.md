@@ -1,6 +1,6 @@
 # AItruistic
 
-A non-profit organization website dedicated to education and discussion about modern AI safety, altruistic opportunity, and civilizational threats.
+A volunteer community website dedicated to education and discussion about modern AI safety, altruistic opportunity, and civilizational threats.
 
 ## Overview
 
