@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
+import { ConditionalLayout } from "@/components/layout/conditional-layout";
 import { Providers } from "@/components/providers";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,11 +25,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <Providers>
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
+          <ConditionalLayout>{children}</ConditionalLayout>
         </Providers>
       </body>
     </html>

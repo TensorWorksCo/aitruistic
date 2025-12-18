@@ -1,50 +1,26 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 
-const topics = [
+const articles = [
   {
-    name: "AI Safety",
-    slug: "ai-safety",
-    description: "Alignment, control problems, and existential risk from advanced AI systems",
-  },
-  {
-    name: "Politics & Governance",
-    slug: "politics",
-    description: "Regulation, policy frameworks, and international cooperation on AI",
-  },
-  {
-    name: "Economic Impacts",
-    slug: "economics",
-    description: "Jobs, automation, UBI, and the future of work in an AI economy",
-  },
-  {
-    name: "Mental Health",
-    slug: "mental-health",
-    description: "AI companions, social media effects, and digital wellness",
-  },
-];
-
-const featuredContent = [
-  {
-    type: "article",
+    slug: "understanding-ai-alignment",
     title: "Understanding AI Alignment: A Primer",
-    description: "An accessible introduction to why aligning AI with human values is crucial",
-    topic: "AI Safety",
-    date: "Dec 10, 2024",
+    description: "An accessible introduction to why aligning AI with human values is crucial for the future of humanity.",
+    date: "Dec 18, 2024",
+    readTime: "5 min read",
   },
   {
-    type: "video",
+    slug: "ai-governance-frameworks",
+    title: "AI Governance Frameworks Around the World",
+    description: "A comparative analysis of how different nations approach AI regulation and policy.",
+    date: "Dec 15, 2024",
+    readTime: "8 min read",
+  },
+  {
+    slug: "economics-of-automation",
     title: "The Economics of Automation",
-    description: "How AI is reshaping labor markets and what we can do about it",
-    topic: "Economic Impacts",
-    date: "Dec 8, 2024",
-  },
-  {
-    type: "article",
-    title: "AI Policy Frameworks Around the World",
-    description: "A comparative analysis of how different nations approach AI governance",
-    topic: "Politics & Governance",
-    date: "Dec 5, 2024",
+    description: "How AI is reshaping labor markets and what we can do to prepare for the future of work.",
+    date: "Dec 12, 2024",
+    readTime: "6 min read",
   },
 ];
 
@@ -68,87 +44,36 @@ export default function HomePage() {
               A volunteer community for education and discussion on modern AI safety, governance, economic
               impacts, and societal risk.
             </p>
-            <div className="mt-6 flex flex-col sm:flex-row gap-3">
-              <Button asChild>
-                <Link href="/auth/signup">Join</Link>
-              </Button>
-              <Button variant="outline" asChild>
-                <Link href="/about">About</Link>
-              </Button>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Content */}
+      {/* Articles Section */}
       <section className="container py-10 md:py-14">
-        <div className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-8">
-            <div className="flex items-baseline justify-between gap-4">
-              <h2 className="text-xl font-semibold">Latest</h2>
-              <Button variant="link" asChild className="px-0">
-                <Link href="/content">View all</Link>
-              </Button>
-            </div>
-
-            <div className="mt-4 divide-y rounded-lg border">
-              {featuredContent.map((content, index) => (
-                <Link
-                  key={index}
-                  href="/content"
-                  className="block p-4 transition-colors hover:bg-muted/50"
-                >
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="min-w-0">
-                      <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <span className="rounded-sm bg-muted px-2 py-0.5 text-foreground">
-                          {content.topic}
-                        </span>
-                        <span>{content.date}</span>
-                        <span className="uppercase tracking-wide">{content.type}</span>
-                      </div>
-                      <h3 className="mt-2 font-semibold leading-snug">
-                        {content.title}
-                      </h3>
-                      <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
-                        {content.description}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-2xl font-semibold mb-8">Articles</h2>
+          
+          <div className="space-y-6">
+            {articles.map((article) => (
+              <Link
+                key={article.slug}
+                href={`/articles/${article.slug}`}
+                className="block p-6 rounded-lg border transition-colors hover:bg-muted/50"
+              >
+                <div className="flex items-center gap-3 text-xs text-muted-foreground mb-2">
+                  <span>{article.date}</span>
+                  <span>•</span>
+                  <span>{article.readTime}</span>
+                </div>
+                <h3 className="text-xl font-semibold mb-2">
+                  {article.title}
+                </h3>
+                <p className="text-muted-foreground">
+                  {article.description}
+                </p>
+              </Link>
+            ))}
           </div>
-
-          <aside className="lg:col-span-4 space-y-8">
-            <div>
-              <h2 className="text-xl font-semibold">Topics</h2>
-              <div className="mt-4 divide-y rounded-lg border">
-                {topics.map((topic) => (
-                  <Link
-                    key={topic.slug}
-                    href={`/topics/${topic.slug}`}
-                    className="block p-4 transition-colors hover:bg-muted/50"
-                  >
-                    <p className="font-medium">{topic.name}</p>
-                    <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
-                      {topic.description}
-                    </p>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-lg border bg-muted/30 p-4">
-              <h3 className="font-semibold">Newsletter</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Occasional digests on new content and major AI developments.
-              </p>
-              <Button variant="outline" asChild className="mt-4 w-full">
-                <Link href="/newsletter">Subscribe</Link>
-              </Button>
-            </div>
-          </aside>
         </div>
       </section>
     </div>
