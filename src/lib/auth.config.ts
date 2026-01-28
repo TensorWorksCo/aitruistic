@@ -31,6 +31,13 @@ export const authConfig: NextAuthConfig = {
         return role === "ADMIN" || role === "MODERATOR";
       }
 
+      // Demos routes require moderator/admin role
+      if (pathname.startsWith("/demos")) {
+        if (!isLoggedIn) return false;
+        const role = auth?.user?.role;
+        return role === "ADMIN" || role === "MODERATOR";
+      }
+
       return true;
     },
     jwt({ token, user }) {
