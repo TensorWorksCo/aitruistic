@@ -26,6 +26,7 @@ export default function VoiceClonePage() {
   const audioChunksRef = useRef<Blob[]>([]);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const agentStreamRef = useRef<MediaStream | null>(null);
 
   const conversation = useConversation({
     onConnect: () => {
@@ -174,7 +175,8 @@ export default function VoiceClonePage() {
     }
 
     try {
-      await navigator.mediaDevices.getUserMedia({ audio: true });
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      agentStreamRef.current = stream;
       await conversation.startSession({
         agentId: agentId,
         connectionType: "websocket" as const,
@@ -186,6 +188,14 @@ export default function VoiceClonePage() {
 
   const endAgentConversation = async () => {
     await conversation.endSession();
+    
+    // Stop all media stream tracks to release the microphone
+    if (agentStreamRef.current) {
+      agentStreamRef.current.getTracks().forEach(track => {
+        track.stop();
+      });
+      agentStreamRef.current = null;
+    }
   };
 
   const formatTime = (seconds: number) => {
