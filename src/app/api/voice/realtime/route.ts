@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
     });
 
     const chunks: Uint8Array[] = [];
-    for await (const chunk of audio as any) {
+    for await (const chunk of audio as unknown as AsyncIterable<Uint8Array>) {
       chunks.push(chunk);
     }
 

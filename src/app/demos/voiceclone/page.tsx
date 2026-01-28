@@ -13,7 +13,7 @@ export default function VoiceClonePage() {
   const [isRecording, setIsRecording] = useState(false);
   const [audioBlob, setAudioBlob] = useState<Blob | null>(null);
   const [voiceId, setVoiceId] = useState<string | null>(null);
-  const [agentId, setAgentId] = useState<string | null>("sXUinz6W32o4KnLTDUf9");
+  const [agentId] = useState<string | null>("sXUinz6W32o4KnLTDUf9");
   const [isCloning, setIsCloning] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [conversationText, setConversationText] = useState("");
