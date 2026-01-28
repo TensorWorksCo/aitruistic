@@ -33,11 +33,17 @@ function SignInForm() {
         redirect: false,
       });
 
+      console.log("SignIn result:", result);
+
       if (result?.error) {
+        console.error("SignIn error:", result.error);
         setFormError("Invalid email or password");
-      } else {
+      } else if (result?.ok) {
+        console.log("SignIn successful, redirecting to:", callbackUrl);
         router.push(callbackUrl);
         router.refresh();
+      } else {
+        setFormError("Sign in failed. Please try again.");
       }
     } catch {
       setFormError("Something went wrong. Please try again.");
