@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { UserNav } from "./user-nav";
+import { HeaderNav } from "./header-nav";
 
 export function Header() {
-  const pathname = usePathname();
+  const { data: session } = useSession();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background">
@@ -17,24 +19,20 @@ export function Header() {
             </span>
           </Link>
 
-          <nav className="flex items-center gap-4">
+          <HeaderNav />
+        </div>
+
+        <div className="flex items-center gap-4">
+          {session?.user ? (
+            <UserNav user={session.user} />
+          ) : (
             <Link
-              href="/articles"
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                pathname === "/articles" || pathname.startsWith("/articles/") ? "text-foreground" : "text-muted-foreground"
-              }`}
+              href="/auth/signin"
+              className="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary rounded-md hover:bg-primary/90 transition-colors"
             >
-              Articles
+              Sign In
             </Link>
-            <Link
-              href="/about"
-              className={`text-sm font-medium transition-colors hover:text-primary ${
-                pathname === "/about" ? "text-foreground" : "text-muted-foreground"
-              }`}
-            >
-              About
-            </Link>
-          </nav>
+          )}
         </div>
       </div>
     </header>
