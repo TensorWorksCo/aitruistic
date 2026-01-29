@@ -123,6 +123,18 @@ export default function VoiceClonePage() {
     setError(null);
 
     try {
+      if (voiceId) {
+        await fetch("/api/voice/delete", {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ voiceId }),
+        }).catch((err) => {
+          console.error("Failed to delete old voice:", err);
+        });
+      }
+
       const formData = new FormData();
       formData.append("audio", audioBlob, "recording.webm");
 
