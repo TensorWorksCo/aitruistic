@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Mic, Square, Play, Loader2, AlertCircle, Phone, PhoneOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -27,6 +27,7 @@ export default function VoiceClonePage() {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const agentStreamRef = useRef<MediaStream | null>(null);
+  const voiceIdRef = useRef<string | null>(null);
 
   const conversation = useConversation({
     onConnect: () => {
@@ -53,6 +54,24 @@ export default function VoiceClonePage() {
       },
     } : undefined,
   });
+
+  useEffect(() => {
+    voiceIdRef.current = voiceId;
+  }, [voiceId]);
+
+  useEffect(() => {
+    const deleteVoice = () => {
+      if (!voiceIdRef.current) return;
+      const blob = new Blob([JSON.stringify({ voiceId: voiceIdRef.current })], { type: "application/json" });
+      navigator.sendBeacon("/api/voice/delete", blob);
+    };
+
+    window.addEventListener("beforeunload", deleteVoice);
+    return () => {
+      window.removeEventListener("beforeunload", deleteVoice);
+      deleteVoice();
+    };
+  }, []);
 
   const startRecording = async () => {
     try {
